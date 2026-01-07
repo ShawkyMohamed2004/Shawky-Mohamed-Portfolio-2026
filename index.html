@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-layout="modern">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shawky Mohamed - Flutter Developer Portfolio | Building elegant, high-performance mobile experiences">
+    <meta name="keywords" content="Flutter Developer, Mobile App Developer, Software Engineering, UI/UX">
+    <meta name="author" content="Shawky Mohamed">
+    <title>Shawky Mohamed | Flutter Developer</title>
+    <link rel="stylesheet" href="css/style.css?v=202601072035">
+    <link rel="stylesheet" href="css/additions.css?v=202601072035">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+        <div class="cursor-dot"></div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Color Picker (Left Side) -->
+    <aside class="color-picker" id="colorPicker">
+        <button class="color-picker-toggle" id="colorPickerToggle" aria-label="Open color picker">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a10 10 0 0 1 0 20"/>
+                <circle cx="12" cy="12" r="4"/>
+            </svg>
+        </button>
+        <div class="color-palette" id="colorPalette">
+            <span class="color-label">SELECT YOUR CHOICE</span>
+            <div class="color-options">
+                <button class="color-option active" data-color="#00d4ff" style="--btn-color: #00d4ff" aria-label="Cyan"></button>
+                <button class="color-option" data-color="#ff006e" style="--btn-color: #ff006e" aria-label="Pink"></button>
+                <button class="color-option" data-color="#8338ec" style="--btn-color: #8338ec" aria-label="Purple"></button>
+                <button class="color-option" data-color="#ff9500" style="--btn-color: #ff9500" aria-label="Orange"></button>
+                <button class="color-option" data-color="#00ff88" style="--btn-color: #00ff88" aria-label="Green"></button>
+                <button class="color-option" data-color="#ffdd00" style="--btn-color: #ffdd00" aria-label="Yellow"></button>
+                <button class="color-option" data-color="#ff4444" style="--btn-color: #ff4444" aria-label="Red"></button>
+                <button class="color-option" data-color="#ffffff" style="--btn-color: #ffffff" aria-label="White"></button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-logo">
+            <svg class="logo" id="logo" viewBox="0 0 140 50" aria-label="Shawky Mohamed Logo">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" class="gradient-start"/>
+                        <stop offset="100%" class="gradient-end"/>
+                    </linearGradient>
+                </defs>
+                <!-- S Letter -->
+                <path d="M 12 15 Q 5 15 5 22 Q 5 29 12 29 Q 19 29 19 36 Q 19 43 12 43" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <!-- M Letter -->
+                <path d="M 25 15 L 25 43 M 25 15 L 32 28 L 39 15 M 39 15 L 39 43" stroke="url(#logoGradient)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Divider -->
+                <line x1="48" y1="20" x2="48" y2="38" stroke="var(--accent-color)" stroke-width="2" opacity="0.3"/>
+                <!-- Shawky Mohamed Text -->
+                <text x="56" y="26" font-size="13" font-weight="700" fill="var(--text-primary)" font-family="-apple-system, sans-serif">Shawky</text>
+                <text x="56" y="40" font-size="11" font-weight="600" fill="var(--text-secondary)" font-family="-apple-system, sans-serif">Mohamed</text>
+            </svg>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+        </button>
+        <a href="#contact" class="btn-hire-me" id="hireMeBtn">
+            <span>Hire Me</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">SM</div>
+            <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="#hero" class="mobile-menu-link">
+                <span class="link-number">01</span>
+                <span class="link-text">Home</span>
+            </a></li>
+            <li><a href="#about" class="mobile-menu-link">
+                <span class="link-number">02</span>
+                <span class="link-text">About</span>
+            </a></li>
+            <li><a href="#skills" class="mobile-menu-link">
+                <span class="link-number">03</span>
+                <span class="link-text">Skills</span>
+            </a></li>
+            <li><a href="#projects" class="mobile-menu-link">
+                <span class="link-number">04</span>
+                <span class="link-text">Projects</span>
+            </a></li>
+            <li><a href="#experience" class="mobile-menu-link">
+                <span class="link-number">05</span>
+                <span class="link-text">Experience</span>
+            </a></li>
+            <li><a href="#services" class="mobile-menu-link">
+                <span class="link-number">06</span>
+                <span class="link-text">Services</span>
+            </a></li>
+            <li><a href="#contact" class="mobile-menu-link">
+                <span class="link-number">07</span>
+                <span class="link-text">Contact</span>
+            </a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="section hero" id="hero">
+            <div class="hero-bg">
+                <div class="hero-grid"></div>
+                <div class="hero-orb hero-orb-1"></div>
+                <div class="hero-orb hero-orb-2"></div>
+                <div class="hero-orb hero-orb-3"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="status-dot"></span>
+                        <span>Available for opportunities</span>
+                    </div>
+                    <div class="hero-text">
+                        <p class="hero-greeting">Hello, I'm</p>
+                        <h1 class="hero-name">Shawky Mohamed</h1>
+                        <div class="hero-roles">
+                            <span class="role-text" id="roleText">Flutter Developer</span>
+                            <span class="role-cursor">|</span>
+                        </div>
+                        <p class="hero-description">
+                            Building elegant, high-performance mobile experiences with Flutter and modern UI systems. 
+                            Crafting digital products that feel alive, responsive, and deeply human.
+                        </p>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View Projects</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="btn btn-download" id="downloadCV">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                            </svg>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="hero-image">
+                        <!-- Multi-image system: changes with layout -->
+                        <div class="hero-image-placeholder" data-layout-image="modern">
+                            <img src="images/shawky-gradient-bg.jpg" alt="Shawky Mohamed - Professional" class="profile-img" onerror="this.style.display='none'; this.parentElement.classList.add('no-image')" />
+                        </div>
+                        <div class="hero-image-border"></div>
+                        <div class="hero-image-glow"></div>
+                        
+                        <!-- Floating Tech Icons -->
+                        <div class="tech-icons">
+                            <!-- Flutter Icon -->
+                            <div class="tech-icon tech-icon-1" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path d="M12.3 64.2L76.3 0h39.4L32.1 83.6zM76.3 128h39.4L81.6 93.9l34.1-34.8H76.3L42.2 93.5z" fill="#02569B"/>
+                                    <path d="M81.6 93.9l-20-20-19.4 19.6 19.4 19.6z" fill="#0075C9" opacity=".85"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Dart Icon -->
+                            <div class="tech-icon tech-icon-2" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path d="M32 96h64v-64L32 96z" fill="#00D2B8"/>
+                                    <path d="M96 96L32 32v64h64z" fill="#00B4CC" opacity=".8"/>
+                                    <path d="M96 96L80 112h32v-32L96 96z" fill="#55DDCA"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Figma Icon -->
+                            <div class="tech-icon tech-icon-3" data-tilt>
+                                <svg viewBox="0 0 38 57" fill="currentColor">
+                                    <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1ABCFE"/>
+                                    <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0ACF83"/>
+                                    <path d="M0 28.5A9.5 9.5 0 0 1 9.5 19H19v19H9.5A9.5 9.5 0 0 1 0 28.5z" fill="#FF7262"/>
+                                    <path d="M0 9.5A9.5 9.5 0 0 1 9.5 0H19v19H9.5A9.5 9.5 0 0 1 0 9.5z" fill="#F24E1E"/>
+                                    <path d="M19 0h9.5a9.5 9.5 0 1 1 0 19H19V0z" fill="#A259FF"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Firebase Icon -->
+                            <div class="tech-icon tech-icon-4" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path d="M27.35 80.52l10.68-68.44c.37-2.33 3.5-2.89 4.6-.8l11.48 21.48-26.76 47.76z" fill="#FFA000"/>
+                                    <path d="M27.35 80.52l47.6-44.2L63.7 13.6c-1.03-2.02-3.87-2.02-4.9 0L27.35 80.52z" fill="#F57C00"/>
+                                    <path d="M74.95 36.32L64.25 21.15c-1.1-2.09-4.23-1.53-4.6.8L27.35 80.52l47.6-44.2z" fill="#FFCA28"/>
+                                    <path d="M27.35 80.52l47.6 29.5c1.86 1.15 4.26.05 4.48-2.05l9.93-92.44-14.41 20.79-47.6 44.2z" fill="#FFA000"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Git Icon -->
+                            <div class="tech-icon tech-icon-5" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path fill="#F34F29" d="M124.737 58.378L69.621 3.264c-3.172-3.174-8.32-3.174-11.497 0L46.68 14.71l14.518 14.518c3.375-1.139 7.243-.375 9.932 2.314 2.703 2.706 3.461 6.607 2.294 9.993l13.992 13.993c3.385-1.167 7.292-.413 9.994 2.295 3.78 3.777 3.78 9.9 0 13.679a9.673 9.673 0 01-13.683 0 9.677 9.677 0 01-2.105-10.521L68.574 47.933l-.002 34.341a9.708 9.708 0 012.559 1.828c3.778 3.777 3.778 9.898 0 13.683-3.779 3.777-9.904 3.777-13.679 0-3.778-3.784-3.778-9.905 0-13.683a9.65 9.65 0 013.167-2.11V47.333a9.581 9.581 0 01-3.167-2.111c-2.862-2.86-3.551-7.06-2.083-10.576L41.056 20.333 3.264 58.123a8.133 8.133 0 000 11.5l55.117 55.114c3.174 3.174 8.32 3.174 11.499 0l54.858-54.858a8.135 8.135 0 00-.001-11.501z"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- VS Code Icon -->
+                            <div class="tech-icon tech-icon-6" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path fill="#0065A9" d="M95 2.3l30.5 12.3v98.7L95 125.7 45.8 77.7 18.2 99.7 2.3 94.3V33.7l15.9-5.4 27.6 22zm0 0"/>
+                                    <path fill="#007ACC" d="M95 2.3v31.3l-49.2 30.5 49.2 30.5v31.3l-49.2-52.3zm0 0"/>
+                                    <path fill="#1F9CF0" d="M18.2 99.7L2.3 94.3V33.7l15.9-5.4v71.4zm0 0"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- Android Icon -->
+                            <div class="tech-icon tech-icon-7" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path fill="#A4C439" d="M21.005 67.003h9v31h-9zM98.005 67.003h9v31h-9z"/>
+                                    <path fill="#A4C439" d="M30.005 48.003v47c0 2.762 2.238 5 5 5h10v17c0 4.418 3.582 8 8 8s8-3.582 8-8v-17h6v17c0 4.418 3.582 8 8 8s8-3.582 8-8v-17h10c2.762 0 5-2.238 5-5v-47h-68z"/>
+                                    <path fill="#A4C439" d="M64.005 1.003c-17.673 0-32 14.327-32 32 0 1.295.084 2.57.235 3.825.019.154.039.308.059.462h63.412c.02-.154.04-.308.059-.462.151-1.255.235-2.53.235-3.825 0-17.673-14.327-32-32-32z"/>
+                                    <circle fill="#fff" cx="48.005" cy="25.003" r="4"/>
+                                    <circle fill="#fff" cx="80.005" cy="25.003" r="4"/>
+                                </svg>
+                            </div>
+                            
+                            <!-- iOS Icon -->
+                            <div class="tech-icon tech-icon-8" data-tilt>
+                                <svg viewBox="0 0 128 128" fill="currentColor">
+                                    <path fill="#555555" d="M97.905 67.885c.174 18.8 16.494 25.057 16.674 25.137-.138.44-2.607 8.916-8.597 17.669-5.178 7.568-10.553 15.108-19.018 15.266-8.318.152-10.993-4.934-20.504-4.934-9.508 0-12.479 4.776-20.354 5.086-8.172.31-14.395-8.185-19.616-15.724C15.822 94.961 7.669 66.8 18.616 47.791c5.438-9.44 15.158-15.417 25.707-15.571 8.024-.153 15.598 5.398 20.503 5.398 4.902 0 14.106-6.676 23.782-5.696 4.051.169 15.421 1.636 22.722 12.324-.587.365-13.566 7.921-13.425 23.639M82.272 21.719c4.338-5.251 7.258-12.563 6.462-19.836-6.254.251-13.816 4.167-18.301 9.416-4.02 4.647-7.54 12.087-6.591 19.216 6.971.54 14.091-3.542 18.43-8.796"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about" id="about">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">Who Am I</span>
+                    <h2 class="section-title">About Me</h2>
+                </header>
+                <div class="about-content">
+                    <div class="about-visual">
+                        <div class="about-image-card">
+                            <img src="images/shawky-xiaomi-car.jpg" alt="Shawky Mohamed" class="about-profile-img" />
+                            <div class="about-badge">
+                                <span class="badge-number">3+</span>
+                                <span class="badge-text">Years<br>Experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <p class="about-paragraph">
+                            I'm a passionate <strong>Flutter Developer</strong> and <strong>Software Engineering student</strong> based in Egypt with a strong foundation in creating elegant mobile experiences. My journey in software development started in <strong>2022</strong>, and I've been constantly learning and adapting to new technologies ever since.
+                        </p>
+                        <p class="about-paragraph">
+                            I specialize in building responsive, user-friendly mobile applications using modern frameworks and libraries. My approach combines technical expertise with creative problem-solving to deliver solutions that not only look great but also perform exceptionally.
+                        </p>
+                        <p class="about-paragraph">
+                            When I'm not coding, you can find me exploring new technologies, mentoring fellow students, or working on innovative projects like <strong>AuraGuard</strong>—my graduation project that showcases my ability to tackle complex security challenges while maintaining intuitive user interfaces.
+                        </p>
+                        
+                        <div class="about-info-cards">
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                    </svg>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Education - July 2026</span>
+                                    <span class="info-value">Bachelor of Computer Science - FCSE New Mansoura University</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Location</span>
+                                    <span class="info-value">New Mansoura City, Egypt</span>
+                                </div>
+                            </div>
+                            
+                            <div class="info-card">
+                                <div class="info-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                    </svg>
+                                </div>
+                                <div class="info-content">
+                                    <span class="info-label">Experience</span>
+                                    <span class="info-value">3+ Years in Development</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="btn-download-cv" id="downloadCV2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            <span>Download CV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills" id="skills">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">Expertise</span>
+                    <h2 class="section-title">Skills & Technologies</h2>
+                </header>
+                <div class="skills-grid">
+                    <!-- Category 1: Core Technologies -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+                                <line x1="12" y1="22" x2="12" y2="15.5"/>
+                                <polyline points="22 8.5 12 15.5 2 8.5"/>
+                            </svg>
+                            <span>Core Technologies</span>
+                        </h3>
+                        <div class="skill-items">
+                            <div class="skill-card" data-level="expert">
+                                <span class="skill-name">Flutter</span>
+                                <span class="skill-badge">Expert</span>
+                            </div>
+                            <div class="skill-card" data-level="expert">
+                                <span class="skill-name">Dart</span>
+                                <span class="skill-badge">Expert</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">Firebase</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: UI/UX & Design -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                            </svg>
+                            <span>UI/UX & Design</span>
+                        </h3>
+                        <div class="skill-items">
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">UI Design</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">Responsive Design</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">Animations</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Backend & APIs -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            </svg>
+                            <span>Backend & APIs</span>
+                        </h3>
+                        <div class="skill-items">
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">REST APIs</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">State Management</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                            <div class="skill-card" data-level="proficient">
+                                <span class="skill-name">Git & Version Control</span>
+                                <span class="skill-badge">Proficient</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Tools & Workflow -->
+                    <div class="skill-category">
+                        <h3 class="skill-category-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <span>Tools & Workflow</span>
+                        </h3>
+                        <div class="skill-items">
+                            <div class="skill-card" data-level="expert">
+                                <span class="skill-name">VS Code</span>
+                                <span class="skill-badge">Expert</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">Android Studio</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                            <div class="skill-card" data-level="advanced">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-badge">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects" id="projects">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">Portfolio</span>
+                    <h2 class="section-title">Featured Projects</h2>
+                </header>
+                <div class="projects-grid">
+                    <!-- Project 1: CloudInk -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <svg viewBox="0 0 100 60" fill="none">
+                                    <path d="M70 45 Q85 45 85 30 Q85 15 65 15 Q60 5 45 5 Q25 5 20 25 Q5 25 5 40 Q5 55 25 55 L75 55" stroke="var(--accent-color)" stroke-width="2" fill="none"/>
+                                    <path d="M35 35 L45 45 L65 25" stroke="var(--accent-color)" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">View Project</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Cloud</span>
+                            </div>
+                            <h3 class="project-title">CloudInk</h3>
+                            <p class="project-description">
+                                A modern cloud-based note-taking application with real-time synchronization, rich text 
+                                editing, and seamless cross-platform experience. Features intelligent organization, 
+                                offline support, and collaborative sharing capabilities.
+                            </p>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View CloudInk on GitHub">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View CloudInk Live">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </article>
+
+                    <!-- Project 2: MoviX -->
+                    <article class="project-card" data-tilt>
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <svg viewBox="0 0 100 60" fill="none">
+                                    <rect x="10" y="10" width="80" height="40" rx="3" stroke="var(--accent-color)" stroke-width="2"/>
+                                    <polygon points="40,20 40,40 60,30" fill="var(--accent-color)"/>
+                                </svg>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">View Project</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">API</span>
+                                <span class="project-tag">TMDB</span>
+                            </div>
+                            <h3 class="project-title">MoviX</h3>
+                            <p class="project-description">
+                                A feature-rich movie discovery application powered by The Movie Database (TMDB) API. 
+                                Features stunning UI, personalized recommendations, watchlist management, and detailed 
+                                movie information with trailers and reviews.
+                            </p>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View MoviX on GitHub">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View MoviX Live">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </article>
+
+                    <!-- Project 3: AuraGuard (Featured) -->
+                    <article class="project-card project-card-featured" data-tilt>
+                        <div class="project-badge">In Progress</div>
+                        <div class="project-image">
+                            <div class="project-image-placeholder">
+                                <svg viewBox="0 0 100 60" fill="none">
+                                    <path d="M50 5 L85 20 L85 35 Q85 55 50 60 Q15 55 15 35 L15 20 Z" stroke="var(--accent-color)" stroke-width="2" fill="none"/>
+                                    <path d="M35 30 L45 40 L65 20" stroke="var(--accent-color)" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="project-overlay">
+                                <span class="project-view">View Project</span>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Security</span>
+                                <span class="project-tag">AI</span>
+                            </div>
+                            <h3 class="project-title">AuraGuard</h3>
+                            <p class="project-description">
+                                My graduation project—an innovative security application combining biometric authentication, 
+                                real-time threat detection, and intelligent privacy protection. Demonstrates advanced mobile 
+                                development skills with complex security implementations.
+                            </p>
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View AuraGuard on GitHub">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                    </svg>
+                                </a>
+                                <a href="#" class="project-link" aria-label="View AuraGuard Documentation">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                        <polyline points="15 3 21 3 21 9"/>
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-glow"></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience" id="experience">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">Journey</span>
+                    <h2 class="section-title">Professional Experience</h2>
+                </header>
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <time class="timeline-date">2023 — Present</time>
+                                    <span class="timeline-badge">Leadership</span>
+                                </div>
+                                <h3 class="timeline-title">Huawei Student Ambassador</h3>
+                                <p class="timeline-company">Huawei Technologies</p>
+                                <p class="timeline-description">
+                                    Leading technical workshops and mentoring sessions, supporting over <strong>220+ students</strong> in their 
+                                    journey to understand mobile development, cloud technologies, and modern software practices. 
+                                    Building bridges between industry expertise and academic learning.
+                                </p>
+                                <ul class="timeline-highlights">
+                                    <li>Conducted 15+ technical workshops on Flutter and mobile development</li>
+                                    <li>Mentored students through hackathons and coding competitions</li>
+                                    <li>Built a thriving community of aspiring developers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Timeline Item 2 -->
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <time class="timeline-date">2022 — Present</time>
+                                    <span class="timeline-badge">Development</span>
+                                </div>
+                                <h3 class="timeline-title">Flutter Developer</h3>
+                                <p class="timeline-company">Freelance & Personal Projects</p>
+                                <p class="timeline-description">
+                                    Developing high-quality mobile applications using Flutter, focusing on clean architecture, 
+                                    beautiful UI, and optimal performance. Transforming client requirements into polished, 
+                                    production-ready applications.
+                                </p>
+                                <ul class="timeline-highlights">
+                                    <li>Built and deployed 10+ production-ready applications</li>
+                                    <li>Implemented complex state management solutions</li>
+                                    <li>Integrated various APIs and backend services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Timeline Item 3 -->
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-card">
+                                <div class="timeline-header">
+                                    <time class="timeline-date">2021 — Present</time>
+                                    <span class="timeline-badge">Education</span>
+                                </div>
+                                <h3 class="timeline-title">Software Engineering Student</h3>
+                                <p class="timeline-company">University</p>
+                                <p class="timeline-description">
+                                    Pursuing a degree in Software Engineering, combining theoretical foundations with practical 
+                                    application through rigorous coursework and hands-on projects. Maintaining academic excellence 
+                                    while actively contributing to the developer community.
+                                </p>
+                                <ul class="timeline-highlights">
+                                    <li>Maintaining strong academic performance</li>
+                                    <li>Working on AuraGuard as graduation project</li>
+                                    <li>Active participant in coding clubs and tech events</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="services">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">What I Offer</span>
+                    <h2 class="section-title">Services</h2>
+                </header>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <article class="service-card" data-tilt>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Flutter Development</h3>
+                        <p class="service-description">
+                            Cross-platform mobile applications built with Flutter, delivering native performance and 
+                            beautiful UIs on both iOS and Android from a single codebase.
+                        </p>
+                        <ul class="service-features">
+                            <li>Custom widgets & animations</li>
+                            <li>Clean architecture patterns</li>
+                            <li>Platform-specific optimizations</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 2 -->
+                    <article class="service-card" data-tilt>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">UI/UX Implementation</h3>
+                        <p class="service-description">
+                            Pixel-perfect implementation of design mockups with meticulous attention to detail, smooth 
+                            animations, and responsive layouts that adapt to any screen.
+                        </p>
+                        <ul class="service-features">
+                            <li>Figma to Flutter conversion</li>
+                            <li>Micro-interactions & animations</li>
+                            <li>Responsive & adaptive design</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 3 -->
+                    <article class="service-card" data-tilt>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <path d="M22 6l-10 7L2 6"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Firebase Integration</h3>
+                        <p class="service-description">
+                            Full Firebase backend integration including authentication, real-time databases, cloud storage, 
+                            and analytics for scalable mobile solutions.
+                        </p>
+                        <ul class="service-features">
+                            <li>Authentication systems</li>
+                            <li>Real-time data sync</li>
+                            <li>Cloud Functions & storage</li>
+                        </ul>
+                    </article>
+
+                    <!-- Service 4 -->
+                    <article class="service-card" data-tilt>
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-title">API Integration</h3>
+                        <p class="service-description">
+                            Seamless integration with REST APIs and third-party services, implementing robust error 
+                            handling and efficient data management patterns.
+                        </p>
+                        <ul class="service-features">
+                            <li>REST API integration</li>
+                            <li>Data caching strategies</li>
+                            <li>Error handling & retry logic</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <header class="section-header">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Let's Work Together</h2>
+                </header>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-text">
+                            Have a project in mind or want to collaborate? I'm always excited to discuss new opportunities, 
+                            creative ideas, and challenging problems. Drop me a message and let's create something amazing.
+                        </p>
+                        <div class="contact-details">
+                            <a href="mailto:eng.shawkymohamed@gmail.com" class="contact-item">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                        <polyline points="22,6 12,13 2,6"/>
+                                    </svg>
+                                </div>
+                                <span>eng.shawkymohamed@gmail.com</span>
+                            </a>
+                            <a href="tel:+201285660633" class="contact-item">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <span>+20 128 566 0633</span>
+                            </a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/shawkymohamed" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com/in/shawkymohamed" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com/shawkydev" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                </svg>
+                            </a>
+                            <a href="https://instagram.com/shawky.codes" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg class="logo" viewBox="0 0 160 50" aria-label="Shawky Mohamed Logo">
+                        <defs>
+                            <linearGradient id="logoGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" class="gradient-start"/>
+                                <stop offset="100%" class="gradient-end"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- S Letter -->
+                        <path d="M 12 15 Q 5 15 5 22 Q 5 29 12 29 Q 19 29 19 36 Q 19 43 12 43" stroke="url(#logoGradientFooter)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <!-- M Letter -->
+                        <path d="M 25 15 L 25 43 M 25 15 L 32 28 L 39 15 M 39 15 L 39 43" stroke="url(#logoGradientFooter)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Divider -->
+                        <line x1="48" y1="20" x2="48" y2="38" stroke="var(--accent-color)" stroke-width="2" opacity="0.3"/>
+                        <!-- Shawky Mohamed Text -->
+                        <text x="56" y="26" font-size="13" font-weight="700" fill="var(--text-primary)" font-family="-apple-system, sans-serif">Shawky</text>
+                        <text x="56" y="40" font-size="11" font-weight="600" fill="var(--text-secondary)" font-family="-apple-system, sans-serif">Mohamed</text>
+                    </svg>
+                </div>
+                <div class="footer-links">
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <p class="footer-text">Crafted with passion by Shawky Mohamed</p>
+                <p class="footer-copyright">&copy; 2026 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <!-- Layout Switcher -->
+    <aside class="layout-switcher" id="layoutSwitcher">
+        <button class="layout-toggle" id="layoutToggle" aria-label="Switch layout">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <span>SWITCH LAYOUT</span>
+        </button>
+        <div class="layout-modal" id="layoutModal">
+            <div class="layout-options">
+                <button class="layout-option active" data-layout="modern" aria-label="Modern centered layout">
+                    <div class="layout-preview layout-preview-modern">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="layout-name">Modern / Centered</span>
+                </button>
+                <button class="layout-option" data-layout="split" aria-label="Split visual layout">
+                    <div class="layout-preview layout-preview-split">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="layout-name">Split / Visual</span>
+                </button>
+                <button class="layout-option" data-layout="narrative" aria-label="Narrative timeline layout">
+                    <div class="layout-preview layout-preview-narrative">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="layout-name">Narrative / Timeline</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <script src="js/script.js?v=202601072035"></script>
+</body>
+</html>
