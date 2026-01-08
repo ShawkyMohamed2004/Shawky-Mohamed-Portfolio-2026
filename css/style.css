@@ -272,8 +272,8 @@ body * {
 
 /* === THEME TOGGLE === */
 .theme-toggle {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
@@ -281,7 +281,7 @@ body * {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-base);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-md);
     cursor: pointer;
     margin-left: auto;
@@ -290,9 +290,10 @@ body * {
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-lg), var(--glow-sm);
+    transform: scale(1.05) rotate(10deg);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.2);
     border-color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.1);
 }
 
 .theme-toggle svg {
@@ -364,22 +365,25 @@ body * {
 }
 
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1100;
-    padding: 20px 100px;
-    transition: all var(--transition-base);
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1100 !important;
+    padding: 12px 80px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
 }
 
 .nav.scrolled {
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 12px 100px;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2);
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 80px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 40px rgba(var(--accent-rgb), 0.05);
 }
 
 [data-theme="light"] .nav.scrolled {
@@ -408,14 +412,18 @@ body * {
 }
 
 .nav-logo .logo {
-    width: 190px;
-    height: 75px;
-    transition: all var(--transition-base);
+    width: 150px;
+    height: 58px;
+    transition: filter 0.3s ease;
 }
 
 .nav-logo .logo:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(var(--glow-sm));
+    filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.5));
+}
+
+.nav.scrolled .nav-logo .logo {
+    width: 150px;
+    height: 58px;
 }
 
 .logo .gradient-start {
@@ -474,8 +482,8 @@ body * {
 .btn-hire-me {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 10px 22px;
+    gap: 8px;
+    padding: 11px 24px;
     background: var(--accent-color);
     color: #000;
     font-size: 14px;
@@ -483,22 +491,48 @@ body * {
     text-decoration: none;
     border-radius: 30px;
     border: none;
-    transition: all var(--transition-base);
-    box-shadow: 0 4px 16px var(--accent-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.3);
     flex-shrink: 0;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hire-me::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-hire-me:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-hire-me svg {
     width: 16px;
     height: 16px;
     stroke: currentColor;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
 .btn-hire-me:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px var(--accent-glow);
-    background: var(--accent-secondary);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.5);
+}
+
+.btn-hire-me:hover svg {
+    transform: translateX(4px);
 }
 
 /* === MOBILE MENU === */
@@ -697,11 +731,12 @@ body * {
 
 .hero-image {
     position: relative;
-    width: 400px;
-    height: 500px;
+    width: 360px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
 .hero-image-placeholder {
@@ -789,6 +824,17 @@ body * {
     pointer-events: none;
 }
 
+.tech-network {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .tech-icon {
     position: absolute;
     width: 60px;
@@ -840,20 +886,20 @@ body * {
 }
 
 .tech-icon-2 {
-    top: 8%;
-    right: -25px;
+    top: 10%;
+    right: -40px;
     animation-delay: 0.5s;
 }
 
 .tech-icon-3 {
-    top: 32%;
+    top: 35%;
     right: -35px;
     animation-delay: 1s;
 }
 
 .tech-icon-4 {
-    bottom: 28%;
-    right: -25px;
+    bottom: 25%;
+    right: -30px;
     animation-delay: 1.5s;
 }
 
@@ -865,21 +911,15 @@ body * {
 }
 
 .tech-icon-6 {
-    bottom: 28%;
-    left: -25px;
+    bottom: 25%;
+    left: -30px;
     animation-delay: 2.5s;
 }
 
 .tech-icon-7 {
-    top: 32%;
+    top: 35%;
     left: -35px;
     animation-delay: 3s;
-}
-
-.tech-icon-8 {
-    top: 8%;
-    left: -25px;
-    animation-delay: 3.5s;
 }
 
 @keyframes floatIcon {
@@ -1202,7 +1242,7 @@ body * {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -2038,17 +2078,19 @@ body * {
 /* === BACK TO TOP BUTTON === */
 .back-to-top {
     position: fixed;
-    bottom: 120px;
+    bottom: 105px;
     right: 40px;
     width: 50px;
     height: 50px;
-    background: var(--accent-color);
-    border: none;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 16px var(--accent-glow);
+    background: rgba(0, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -2063,14 +2105,18 @@ body * {
 }
 
 .back-to-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 24px var(--accent-glow);
+    transform: translateY(-3px);
+    background: rgba(0, 255, 255, 0.15);
+    border-color: rgba(0, 255, 255, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .back-to-top svg {
     width: 24px;
     height: 24px;
-    stroke: #000;
+    stroke: var(--accent-color);
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.5));
 }
 
 /* === LAYOUT SWITCHER === */
@@ -2505,6 +2551,7 @@ body * {
         flex-direction: column;
         align-items: center;
         width: 100%;
+        order: 20;
     }
     
     .hero-name {
@@ -2524,13 +2571,9 @@ body * {
         text-align: center;
     }
     
-    /* Fix scroll indicator visibility */
+    /* Hide scroll indicator on mobile */
     .scroll-indicator {
-        display: flex !important;
-        margin-top: var(--gap-md);
-        margin-bottom: var(--gap-md);
-        position: relative;
-        z-index: 10;
+        display: none !important;
     }
     
     .hero-image-wrapper {
@@ -2559,6 +2602,12 @@ body * {
     .tech-icon svg {
         width: 20px !important;
         height: 20px !important;
+    }
+    
+    /* Fix Dart position on mobile */
+    .tech-icon-2 {
+        right: -20px !important;
+        top: 15% !important;
     }
     
     .hero-cta {
@@ -2597,6 +2646,12 @@ body * {
         right: 20px !important;
     }
     
+    /* Back to Top - Position Above Layout Switcher */
+    .back-to-top {
+        bottom: 80px !important;
+        right: 20px !important;
+    }
+    
     .layout-switcher-toggle,
     .layout-toggle {
         width: 48px !important;
@@ -2630,6 +2685,15 @@ body * {
     .color-picker-toggle {
         width: 48px !important;
         height: 48px !important;
+    }
+    
+    /* Hide custom cursor on mobile */
+    body * {
+        cursor: auto !important;
+    }
+    
+    .cursor {
+        display: none !important;
     }
     
     .btn-hire-me {

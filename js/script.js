@@ -466,7 +466,7 @@
             this.roles = [
                 'Flutter Developer',
                 'Mobile App Developer',
-                'Software Engineering Student',
+                'Software Engineering',
                 'UI/UX Implementer',
                 'Cross-Platform Specialist'
             ];
