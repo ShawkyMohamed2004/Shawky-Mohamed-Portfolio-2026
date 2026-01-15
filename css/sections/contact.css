@@ -1,0 +1,513 @@
+/* ============================================
+   SECTION - CONTACT
+   Exact match to screenshot design
+   ============================================ */
+
+/* Contact Section */
+.contact-redesigned {
+    padding: 80px 0 100px;
+}
+
+/* Grid Layout - Two Columns */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* ============================================
+   LEFT COLUMN
+   ============================================ */
+
+.contact-info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Intro Text */
+.contact-intro-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   CONTACT CARDS
+   ============================================ */
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual Card */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: rgba(20, 25, 35, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    transform: translateX(6px);
+}
+
+.contact-card-static {
+    cursor: default;
+}
+
+.contact-card-static:hover {
+    transform: none;
+}
+
+/* Card Icons */
+.contact-card-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-card-icon i {
+    font-size: 20px;
+}
+
+/* WhatsApp Icon - Circle with green bg */
+.contact-card-icon.whatsapp {
+    width: 48px;
+    height: 48px;
+    background: #25D366;
+    border-radius: 50%;
+}
+
+.contact-card-icon.whatsapp i {
+    color: #fff;
+    font-size: 22px;
+}
+
+/* Other Icons - Square outline */
+.contact-card-icon.email,
+.contact-card-icon.phone,
+.contact-card-icon.location {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    border-radius: 12px;
+}
+
+.contact-card-icon.email i,
+.contact-card-icon.phone i,
+.contact-card-icon.location i {
+    color: var(--accent-color);
+}
+
+/* Card Content */
+.contact-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.contact-card-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.contact-card-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.contact-card-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 2px;
+}
+
+/* ============================================
+   PREFERRED CONTACT METHODS BOX
+   ============================================ */
+
+.contact-methods-info {
+    background: rgba(20, 25, 35, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 20px 24px;
+}
+
+.contact-methods-info h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.contact-methods-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-methods-info li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.contact-methods-info li strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Method Dots */
+.method-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.method-dot.green {
+    background: #25D366;
+}
+
+.method-dot.blue {
+    background: #3b82f6;
+}
+
+/* ============================================
+   SOCIAL LINKS
+   ============================================ */
+
+.contact-social {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.social-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link-box {
+    width: 42px;
+    height: 42px;
+    background: rgba(30, 35, 45, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link-box i {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.social-link-box:hover {
+    border-color: rgba(var(--accent-rgb), 0.4);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+.social-link-box:hover i {
+    color: var(--accent-color);
+}
+
+.linktree-icon {
+    width: 17px;
+    height: 17px;
+    filter: brightness(0) invert(0.6);
+    transition: filter 0.3s ease;
+}
+
+.social-link-box:hover .linktree-icon {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(63%) saturate(1095%) hue-rotate(130deg) brightness(101%) contrast(101%);
+}
+
+/* ============================================
+   RIGHT COLUMN - CONTACT FORM
+   ============================================ */
+
+.contact-form-column {
+    background: rgba(20, 25, 35, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Form Groups */
+.form-group-styled {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group-styled label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.form-group-styled label .required {
+    color: var(--accent-color);
+    margin-left: 2px;
+}
+
+.form-group-styled input,
+.form-group-styled textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(15, 18, 25, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #fff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group-styled input::placeholder,
+.form-group-styled textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-group-styled input:focus,
+.form-group-styled textarea:focus {
+    outline: none;
+    border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+.form-group-styled textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Send Message Button */
+.btn-send-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 4px;
+}
+
+.btn-send-message i {
+    font-size: 15px;
+}
+
+.btn-send-message:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.35);
+}
+
+/* ============================================
+   WHATSAPP ALTERNATIVE SECTION
+   ============================================ */
+
+.whatsapp-alternative {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Pulsing Dot with Ring */
+.whatsapp-alternative p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.whatsapp-alternative p::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    position: relative;
+    animation: dotPulseRing 2s ease-in-out infinite;
+}
+
+@keyframes dotPulseRing {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.5), 0 0 0 0 rgba(var(--accent-rgb), 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(var(--accent-rgb), 0), 0 0 0 12px rgba(var(--accent-rgb), 0);
+    }
+}
+
+/* WhatsApp Button - Outline */
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 1px solid #25D366;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #25D366;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-whatsapp i {
+    font-size: 17px;
+}
+
+.btn-whatsapp:hover {
+    background: #25D366;
+    color: #fff;
+}
+
+/* Note Text */
+.whatsapp-note {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+
+[data-theme="light"] .contact-intro-text {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .contact-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .contact-card-label {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .contact-card-value {
+    color: #111;
+}
+
+[data-theme="light"] .contact-card-desc {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .contact-methods-info {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .contact-methods-info h4 {
+    color: #111;
+}
+
+[data-theme="light"] .contact-methods-info li {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .contact-methods-info li strong {
+    color: #111;
+}
+
+[data-theme="light"] .social-label {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .social-link-box {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .social-link-box i {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .contact-form-column {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .form-group-styled label {
+    color: #111;
+}
+
+[data-theme="light"] .form-group-styled input,
+[data-theme="light"] .form-group-styled textarea {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #111;
+}
+
+[data-theme="light"] .form-group-styled input::placeholder,
+[data-theme="light"] .form-group-styled textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] .whatsapp-alternative p {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .whatsapp-note {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .linktree-icon {
+    filter: brightness(0) invert(0.4);
+}

@@ -1,0 +1,75 @@
+/* ============================================
+   SECTION - SKILLS
+   Skills grid, categories, skill cards
+   ============================================ */
+
+/* Skills Three Columns Layout */
+.skills-three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.skills-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skills-column-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-row:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    border-color: var(--accent-color);
+    transform: translateX(6px);
+}
+
+.skill-row .skill-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.skill-row span {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* Light Mode */
+[data-theme="light"] .skill-row {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .skill-row:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    border-color: var(--accent-color);
+}

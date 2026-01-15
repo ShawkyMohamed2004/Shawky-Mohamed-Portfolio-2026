@@ -1,0 +1,409 @@
+/* ============================================
+   SECTION - EDUCATION
+   Timeline & Education Card Styles
+   ============================================ */
+
+/* Education Timeline Container */
+.education-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Timeline Item */
+.education-timeline .timeline-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+    min-height: 400px;
+}
+
+/* Timeline Marker - Dot & Line */
+.timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Timeline Dot - Soft Glowing Circle */
+.timeline-dot {
+    width: 26px;
+    height: 26px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 
+        0 0 0 4px rgba(var(--accent-rgb), 0.15),
+        0 0 15px rgba(var(--accent-rgb), 0.3);
+}
+
+/* Inner bright circle - Pulsing */
+.timeline-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* Timeline Line - Always visible */
+.timeline-line {
+    width: 2px;
+    flex: 1;
+    min-height: 300px;
+    background: linear-gradient(
+        180deg, 
+        rgba(var(--accent-rgb), 0.5) 0%,
+        rgba(var(--accent-rgb), 0.2) 30%,
+        var(--border-color) 60%,
+        transparent 100%
+    );
+    margin-top: 12px;
+    position: relative;
+}
+
+/* Glowing top of the line */
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 50px;
+    background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.6) 0%, transparent 100%);
+    filter: blur(2px);
+}
+
+/* Keep line visible even on last item */
+.timeline-item:last-child .timeline-line {
+    display: block;
+    min-height: 200px;
+}
+
+/* Timeline Card */
+.timeline-card {
+    background: rgba(15, 20, 30, 0.95);
+    border-radius: 24px;
+    padding: 35px 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* Static border */
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Flowing light border on hover */
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 25%,
+        var(--accent-color) 50%,
+        transparent 75%,
+        transparent 100%
+    );
+    background-size: 300% 300%;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: flowBorder 2s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes flowBorder {
+    0% { background-position: 200% 0, 0 0, 0 200%, 100% 0; }
+    25% { background-position: 0 0, 0 200%, 100% 0, 200% 0; }
+    50% { background-position: 0 200%, 100% 0, 200% 0, 0 0; }
+    75% { background-position: 100% 0, 200% 0, 0 0, 0 200%; }
+    100% { background-position: 200% 0, 0 0, 0 200%, 100% 0; }
+}
+
+.timeline-card:hover::before {
+    opacity: 1;
+}
+
+.timeline-card:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Timeline Header */
+.timeline-header {
+    margin-bottom: 12px;
+}
+
+/* Timeline Date - Green & Bold */
+.timeline-date {
+    font-size: 15px;
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Timeline Title - Large White Bold */
+.timeline-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+/* Education Pills - University, Faculty, Location */
+.edu-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 5;
+}
+
+.edu-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+/* Link Pills - Clickable */
+.edu-pill-link {
+    cursor: pointer;
+}
+
+/* Hover effect - zoom, glow, expand, show arrow */
+.edu-pill-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(var(--accent-rgb), 0.6);
+    color: var(--text-primary);
+    padding: 10px 24px;
+    box-shadow: 
+        0 0 0 2px rgba(var(--accent-rgb), 0.25),
+        0 0 25px rgba(var(--accent-rgb), 0.2),
+        0 8px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px) scale(1.02);
+}
+
+.edu-pill-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.edu-pill-link:hover .edu-pill-logo {
+    transform: scale(1.1);
+}
+
+.edu-pill-arrow {
+    font-size: 12px;
+    opacity: 0;
+    color: var(--accent-color);
+    transform: translateX(-8px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-left: -5px;
+}
+
+.edu-pill-link:hover .edu-pill-arrow {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    margin-left: 2px;
+}
+
+/* Location Pill */
+.edu-pill.location {
+    cursor: default;
+}
+
+.edu-pill.location i {
+    color: #ef4444;
+    font-size: 14px;
+}
+
+/* Timeline Description */
+.timeline-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* Education Tags - Subjects */
+.edu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.edu-tag {
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    cursor: default;
+    position: relative;
+}
+
+.edu-tag:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.1);
+    box-shadow: 
+        0 0 0 3px rgba(var(--accent-rgb), 0.2),
+        0 0 20px rgba(var(--accent-rgb), 0.15);
+    transform: translateY(-2px);
+}
+
+.edu-tag.more {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* ============================================
+   EXPERIENCE TIMELINE (Shared Styles)
+   ============================================ */
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline > .timeline-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: var(--gap-lg);
+    margin-bottom: var(--gap-xl);
+}
+
+.timeline-badge {
+    padding: 4px 12px;
+    background: var(--accent-color);
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 12px;
+}
+
+.timeline-badge.current {
+    background: rgba(var(--accent-rgb), 0.2);
+    color: var(--accent-color);
+}
+
+.timeline-company {
+    font-size: 15px;
+    color: var(--accent-color);
+    margin-bottom: var(--gap-sm);
+}
+
+.timeline-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+}
+
+.timeline-highlights li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding-left: 24px;
+    position: relative;
+}
+
+.timeline-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Timeline Tags (Experience) */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.timeline-tag {
+    padding: 6px 14px;
+    background: rgba(var(--accent-rgb), 0.1);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.timeline-tag:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* Light Mode */
+[data-theme="light"] .timeline-card {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .edu-pill {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .edu-tag {
+    border-color: rgba(0, 0, 0, 0.12);
+}

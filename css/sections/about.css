@@ -1,0 +1,292 @@
+/* ============================================
+   SECTION - ABOUT
+   About section layout, photo, bio, stats
+   ============================================ */
+
+/* About Clean Section - Main Grid */
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 60px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+}
+
+/* Photo Side */
+.about-photo-side {
+    position: relative;
+    perspective: 1000px;
+}
+
+.about-photo-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(var(--accent-rgb), 0.15);
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Rotating Border Effect - Only on Hover */
+.about-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        var(--accent-color),
+        var(--accent-secondary, #00ffc8),
+        #ff006e,
+        #8338ec,
+        var(--accent-color)
+    );
+    z-index: -2;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 0.4s ease;
+}
+
+.about-photo-frame:hover::before {
+    opacity: 1;
+    animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Inner background to create border effect */
+.about-photo-frame::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    background: var(--bg-primary);
+    border-radius: 16px;
+    z-index: -1;
+}
+
+.about-photo-frame:hover {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 0 80px rgba(var(--accent-rgb), 0.35);
+}
+
+.about-photo {
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+}
+
+.about-photo-frame:hover .about-photo {
+    transform: scale(1.03);
+}
+
+/* Enhanced 3D Photo Styles */
+[data-tilt-photo] {
+    cursor: grab;
+    transform-style: preserve-3d;
+}
+
+[data-tilt-photo]:active {
+    cursor: grabbing;
+}
+
+[data-tilt-photo] .about-photo {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* Text Side */
+.about-text-side {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Bio Block - Card Style */
+.about-bio-block {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+}
+
+.about-bio {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.about-bio strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Stats Inline */
+.about-stats-inline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    background: rgba(20, 20, 28, 0.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item:hover {
+    border-color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--accent-color);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.stat-text {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 14px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Location */
+.about-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    width: fit-content;
+    margin-top: 8px;
+}
+
+.about-location i {
+    color: var(--accent-color);
+}
+
+/* Focus Area */
+.about-focus {
+    margin-top: 8px;
+}
+
+.about-focus .focus-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about-focus .focus-title::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.about-focus .focus-title i {
+    color: var(--accent-color);
+    margin-left: 4px;
+}
+
+.focus-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.focus-tag {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.focus-tag:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* Light Mode */
+[data-theme="light"] .about-bio-block {
+    border-left-color: var(--accent-color);
+}
+
+[data-theme="light"] .stat-item {
+    background: rgba(240, 240, 245, 0.9);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .stat-item:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    border-color: var(--accent-color);
+}
+
+[data-theme="light"] .stat-text {
+    color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] .about-location {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .focus-tag {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+    color: var(--text-secondary);
+}

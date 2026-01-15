@@ -1,0 +1,72 @@
+/* ============================================
+   LAYOUT - SECTIONS
+   Base section styles used across all sections
+   ============================================ */
+
+.section {
+    padding: var(--section-padding) 0;
+    position: relative;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--gap-xl);
+}
+
+.section-header-left {
+    text-align: left;
+    align-items: flex-start;
+}
+
+/* Section Tag */
+.section-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: var(--gap-sm);
+    padding: 8px 20px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--accent-color);
+    border-radius: 30px;
+}
+
+[data-theme="light"] .section-tag {
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* Section Title */
+.section-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}
+
+/* Section Badge (Alternative) */
+.section-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(var(--accent-rgb), 0.15);
+    border: 1px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: 30px;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+}

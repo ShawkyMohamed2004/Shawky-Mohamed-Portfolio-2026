@@ -1,0 +1,16 @@
+/* ============================================
+   UTILITIES - HELPERS
+   Essential utility classes only
+   ============================================ */
+
+/* Display - Used in responsive */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+
+/* Text Alignment */
+.text-center { text-align: center; }
+
+/* Visibility */
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }

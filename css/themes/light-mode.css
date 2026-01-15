@@ -1,0 +1,414 @@
+/* ============================================
+   THEMES - LIGHT MODE
+   Complete light theme with glassmorphism
+   ============================================ */
+
+/* ========== IMPROVED LIGHT THEME VARIABLES ========== */
+[data-theme="light"] {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f0f0f5;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a4a5a;
+    --text-muted: #7a7a8a;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+    --accent-glow: rgba(0, 180, 220, 0.25);
+}
+
+/* ========== BODY & BACKGROUND ========== */
+[data-theme="light"] body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e8eef5 50%, #f0f4f8 100%);
+}
+
+[data-theme="light"] body::before {
+    background: radial-gradient(ellipse at 30% 20%, rgba(0, 180, 220, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(0, 180, 220, 0.05) 0%, transparent 50%);
+}
+
+/* ========== NAVIGATION - GLASSMORPHISM ========== */
+[data-theme="light"] .nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+[data-theme="light"] .nav.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .nav-link {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+    color: var(--accent-color);
+}
+
+/* ========== HERO SECTION ========== */
+[data-theme="light"] .hero-tagline {
+    background: rgba(0, 180, 220, 0.1);
+    border: 1px solid rgba(0, 180, 220, 0.2);
+}
+
+[data-theme="light"] .hero-image-placeholder {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 245, 250, 0.9) 100%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .tech-icon {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== CARDS - GLASSMORPHISM ========== */
+[data-theme="light"] .about-card,
+[data-theme="light"] .service-card,
+[data-theme="light"] .service-card-new,
+[data-theme="light"] .skill-category,
+[data-theme="light"] .project-card-new,
+[data-theme="light"] .timeline-card,
+[data-theme="light"] .certificate-card {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .about-card:hover,
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .service-card-new:hover,
+[data-theme="light"] .skill-category:hover,
+[data-theme="light"] .project-card-new:hover,
+[data-theme="light"] .timeline-card:hover,
+[data-theme="light"] .certificate-card:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
+    border-color: rgba(0, 180, 220, 0.3) !important;
+}
+
+/* ========== SKILL ITEMS ========== */
+[data-theme="light"] .skill-item {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .skill-item:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== SECTION HEADERS ========== */
+[data-theme="light"] .section-tag {
+    background: rgba(0, 180, 220, 0.1);
+    color: var(--accent-color);
+    border: 1px solid rgba(0, 180, 220, 0.2);
+}
+
+/* ========== PROJECT FILTER TABS ========== */
+[data-theme="light"] .filter-tabs-new {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .filter-tab-new {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .filter-tab-new:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .filter-tab-new.active {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+/* ========== BUTTONS ========== */
+[data-theme="light"] .btn-primary {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 180, 220, 0.3);
+}
+
+[data-theme="light"] .btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background: #fff;
+    border-color: var(--accent-color);
+}
+
+/* ========== CONTACT FORM ========== */
+[data-theme="light"] .contact-wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .input-wrapper input,
+[data-theme="light"] .input-wrapper textarea {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .input-wrapper input:focus,
+[data-theme="light"] .input-wrapper textarea:focus {
+    background: #fff;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 180, 220, 0.1);
+}
+
+[data-theme="light"] .contact-info-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ========== MODALS ========== */
+[data-theme="light"] .project-modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .appearance-modal {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== EXPERIENCE & EDUCATION ========== */
+[data-theme="light"] .exp-responsibilities li::before {
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .exp-tech-tag,
+[data-theme="light"] .edu-pill {
+    background: rgba(0, 180, 220, 0.08);
+    border: 1px solid rgba(0, 180, 220, 0.15);
+    color: var(--accent-color);
+}
+
+/* ========== FOOTER ========== */
+[data-theme="light"] .footer {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ========== BACK TO TOP ========== */
+[data-theme="light"] .back-to-top {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .back-to-top:hover {
+    background: #fff;
+    border-color: var(--accent-color);
+}
+
+/* ========== APPEARANCE SWITCHER ========== */
+[data-theme="light"] .appearance-toggle {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== MOBILE MENU ========== */
+[data-theme="light"] .mobile-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+[data-theme="light"] .mobile-menu-link {
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ========== SCROLLBAR ========== */
+[data-theme="light"] ::-webkit-scrollbar {
+    width: 8px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+/* ========== ICONS & BADGES ========== */
+[data-theme="light"] .about-icon,
+[data-theme="light"] .service-icon {
+    background: rgba(0, 180, 220, 0.1);
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .exp-badge {
+    background: rgba(0, 180, 220, 0.1);
+    color: var(--accent-color);
+}
+
+/* ========== SERVICES SECTION - STATS ========== */
+[data-theme="light"] .service-stat {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .service-stat:hover {
+    border-color: rgba(0, 180, 220, 0.3) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .stat-label-sm {
+    color: var(--text-secondary);
+}
+
+/* ========== SERVICE ICON WRAP ========== */
+[data-theme="light"] .service-icon-wrap {
+    box-shadow: 0 4px 15px rgba(0, 180, 220, 0.25);
+}
+
+/* ========== SERVICE CARD HOVER ========== */
+[data-theme="light"] .service-card-new:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 180, 220, 0.1) !important;
+}
+
+/* ========== ABOUT SECTION ========== */
+[data-theme="light"] .about-bio-block {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .stat-item {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .stat-item:hover {
+    background: rgba(0, 180, 220, 0.08) !important;
+    border-color: rgba(0, 180, 220, 0.3) !important;
+}
+
+[data-theme="light"] .stat-text {
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .about-location {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .about-photo-frame {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 180, 220, 0.1);
+}
+
+[data-theme="light"] .about-photo-frame::after {
+    background: var(--bg-primary);
+}
+
+/* ========== SKILLS SECTION ========== */
+[data-theme="light"] .skill-category {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .skill-item {
+    background: rgba(245, 247, 250, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .skill-item:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(0, 180, 220, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== PROJECTS SECTION ========== */
+[data-theme="light"] .project-card-new {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .project-card-new:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ========== EXPERIENCE & EDUCATION ========== */
+[data-theme="light"] .timeline-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .exp-responsibilities li::before {
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .exp-tech-tag {
+    background: rgba(0, 180, 220, 0.1) !important;
+    border: 1px solid rgba(0, 180, 220, 0.2) !important;
+    color: var(--accent-color);
+}
+
+[data-theme="light"] .edu-pill {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* ========== CERTIFICATES ========== */
+[data-theme="light"] .certificate-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* ========== CONTACT SECTION ========== */
+[data-theme="light"] .contact-wrapper {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .contact-info-card {
+    background: rgba(245, 247, 250, 0.9) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .contact-info-card:hover {
+    background: rgba(255, 255, 255, 1) !important;
+    border-color: rgba(0, 180, 220, 0.3) !important;
+}

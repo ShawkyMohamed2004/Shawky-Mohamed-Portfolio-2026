@@ -1,0 +1,22 @@
+/* ============================================
+   LAYOUT - CONTAINER
+   ============================================ */
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Container Sizes */
+.container-sm {
+    max-width: 800px;
+}
+
+.container-lg {
+    max-width: 1400px;
+}
+
+.container-full {
+    max-width: 100%;
+}

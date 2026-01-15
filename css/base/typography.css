@@ -1,0 +1,35 @@
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+h1 { font-size: clamp(48px, 6vw, 72px); }
+h2 { font-size: clamp(32px, 5vw, 48px); }
+h3 { font-size: clamp(24px, 4vw, 32px); }
+h4 { font-size: clamp(18px, 3vw, 24px); }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
+
+/* Body Text */
+p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Text Accent - Used in HTML */
+.text-accent {
+    color: var(--accent-color);
+}
+
+/* Text Muted - Used in HTML */
+.text-muted {
+    color: var(--text-muted);
+}

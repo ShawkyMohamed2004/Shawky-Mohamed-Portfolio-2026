@@ -1,0 +1,660 @@
+/* ============================================
+   RESPONSIVE CSS
+   Desktop-First Approach
+   ============================================ */
+
+/* ============================================
+   LARGE DESKTOP (1280px and below)
+   ============================================ */
+@media (max-width: 1280px) {
+    .nav {
+        padding: 12px 40px;
+    }
+    
+    .nav.scrolled {
+        padding: 10px 40px;
+    }
+    
+    .hero-name {
+        font-size: 56px;
+    }
+    
+    .hero-image {
+        width: 340px;
+        height: 420px;
+    }
+}
+
+/* ============================================
+   SMALL DESKTOP (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+    :root {
+        --section-padding: 80px;
+    }
+    
+    .container {
+        padding: 0 30px;
+    }
+    
+    .nav {
+        padding: 12px 30px;
+    }
+    
+    .nav.scrolled {
+        padding: 10px 30px;
+    }
+    
+    .hero-name {
+        font-size: 48px;
+    }
+    
+    .hero-image {
+        width: 300px;
+        height: 370px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    /* Skills */
+    .skills-three-columns {
+        gap: 20px;
+    }
+    
+    /* Services - 2 columns */
+    .services-cards-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Projects - 2 columns */
+    .projects-grid-new {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ============================================
+   TABLET (768px and below)
+   Switch to mobile navigation
+   ============================================ */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 60px;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* === NAVIGATION === */
+    .nav {
+        padding: 12px 20px;
+    }
+    
+    .nav.scrolled {
+        padding: 10px 20px;
+    }
+    
+    .nav-links {
+        display: none !important;
+    }
+    
+    .btn-hire-me {
+        display: none !important;
+    }
+    
+    .hamburger {
+        display: flex !important;
+    }
+    
+    .nav-logo .logo {
+        width: 120px;
+    }
+    
+    /* === HERO === */
+    .hero {
+        min-height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero .container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .hero-content {
+        order: 2;
+        text-align: center;
+    }
+    
+    .hero-image-wrapper {
+        order: 1;
+        margin: 0 auto;
+    }
+    
+    .hero-image {
+        width: 260px;
+        height: 320px;
+    }
+    
+    .hero-name {
+        font-size: 36px;
+    }
+    
+    .hero-roles {
+        justify-content: center;
+        font-size: 22px;
+    }
+    
+    .hero-description {
+        font-size: 15px;
+        max-width: 100%;
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .tech-icons {
+        display: none !important;
+    }
+    
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    /* Hero Badge - Show Upwork always */
+    .hero-badge {
+        padding-right: 16px;
+    }
+    
+    .upwork-ghost {
+        position: relative !important;
+        right: auto !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        margin-left: 10px;
+    }
+    
+    /* === SECTION HEADERS === */
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .section-subtitle {
+        font-size: 14px;
+    }
+    
+    .section-tag {
+        font-size: 11px;
+        padding: 6px 16px;
+    }
+    
+    /* === ABOUT === */
+    .about-content-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .about-photo-side {
+        max-width: 250px;
+        margin: 0 auto;
+        position: static;
+    }
+    
+    .about-bio {
+        text-align: center;
+    }
+    
+    .about-stats-inline {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .stat-item {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 130px;
+    }
+    
+    /* === SKILLS === */
+    .skills-three-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    /* === SERVICES === */
+    .services-cards-grid,
+    .services-cards-grid-new {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .services-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* === PROJECTS === */
+    .projects-filters {
+        justify-content: center;
+    }
+    
+    .projects-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .projects-grid-new {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .projects-main-title {
+        font-size: 36px;
+    }
+    
+    .project-modal-content {
+        max-height: 95vh;
+        margin: 10px;
+    }
+    
+    .modal-two-columns,
+    .modal-tech-section {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Show view button always */
+    .project-view-btn {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+    
+    /* === EXPERIENCE === */
+    .experience .section-title {
+        font-size: 32px;
+    }
+    
+    .exp-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .exp-stat-number {
+        font-size: 32px;
+    }
+    
+    .exp-card {
+        padding-left: 40px;
+    }
+    
+    .exp-header {
+        flex-direction: column;
+    }
+    
+    /* === TIMELINE === */
+    .timeline-item {
+        grid-template-columns: 25px 1fr;
+        gap: 16px;
+    }
+    
+    .timeline-card {
+        padding: 20px;
+    }
+    
+    .timeline-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    /* === EDUCATION === */
+    .edu-pills {
+        flex-wrap: wrap;
+    }
+    
+    /* === CERTIFICATES === */
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* === CONTACT === */
+    .contact-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .btn-send-message {
+        width: 100%;
+    }
+    
+    /* === FOOTER === */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .footer-social-links {
+        justify-content: center;
+    }
+    
+    /* === MODALS === */
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+    
+    /* === APPEARANCE === */
+    .cursor {
+        display: none !important;
+    }
+    
+    .cursor-options {
+        display: none !important;
+    }
+    
+    .appearance-section:has(.cursor-options) {
+        display: none !important;
+    }
+    
+    /* === BACK TO TOP === */
+    .back-to-top,
+    #backToTop {
+        width: 50px;
+        height: 50px;
+        bottom: 90px;
+        right: 20px;
+    }
+}
+
+/* ============================================
+   MOBILE (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 50px;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .nav {
+        padding: 10px 16px;
+    }
+    
+    .nav-logo .logo {
+        width: 100px;
+    }
+    
+    .hero {
+        padding: 90px 0 50px;
+    }
+    
+    .hero-image {
+        width: 220px;
+        height: 270px;
+    }
+    
+    .hero-name {
+        font-size: 28px;
+    }
+    
+    .hero-roles {
+        font-size: 18px;
+    }
+    
+    .hero-description {
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .section-tag {
+        font-size: 10px;
+    }
+    
+    /* About */
+    .about-photo-side {
+        max-width: 200px;
+    }
+    
+    .stat-item {
+        flex: 1 1 100%;
+    }
+    
+    .stat-number {
+        font-size: 24px;
+    }
+    
+    /* Projects */
+    .projects-filters {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .projects-stat-number {
+        font-size: 28px;
+    }
+    
+    /* Experience */
+    .exp-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .exp-card-content {
+        padding: 20px;
+    }
+    
+    /* Timeline */
+    .timeline-item {
+        grid-template-columns: 20px 1fr;
+        gap: 12px;
+    }
+    
+    .timeline-card {
+        padding: 16px;
+    }
+    
+    .timeline-title {
+        font-size: 16px;
+    }
+    
+    /* Contact */
+    .contact-form {
+        padding: 20px;
+    }
+    
+    /* Footer */
+    .footer-logo {
+        width: 80px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    
+    /* Appearance */
+    .appearance-toggle {
+        width: 46px;
+        height: 46px;
+    }
+    
+    .back-to-top,
+    #backToTop {
+        width: 46px;
+        height: 46px;
+        bottom: 80px;
+        right: 16px;
+    }
+}
+
+/* ============================================
+   VERY SMALL SCREENS (360px and below)
+   ============================================ */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .hero-name {
+        font-size: 24px;
+    }
+    
+    .hero-image {
+        width: 180px;
+        height: 220px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+}
+
+/* ============================================
+   TOUCH DEVICES
+   Show hover elements always
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+    /* Bigger tap targets */
+    .btn {
+        min-height: 48px;
+    }
+    
+    .filter-btn {
+        min-height: 44px;
+    }
+    
+    .social-link,
+    .footer-social-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Show elements that normally need hover */
+    .project-view-btn {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+    }
+    
+    .upwork-ghost {
+        opacity: 1 !important;
+        position: relative !important;
+        right: auto !important;
+    }
+    
+    .hero-badge {
+        padding-right: 16px !important;
+    }
+    
+    /* Disable transform on hover */
+    .project-card-new:hover,
+    .service-card-new:hover,
+    .timeline-card:hover,
+    .certificate-card:hover {
+        transform: none;
+    }
+}
+
+/* ============================================
+   LANDSCAPE MOBILE
+   ============================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+    
+    .hero .container {
+        flex-direction: row;
+    }
+    
+    .hero-content {
+        order: 1;
+        text-align: left;
+    }
+    
+    .hero-image-wrapper {
+        order: 2;
+    }
+    
+    .hero-image {
+        width: 180px;
+        height: 220px;
+    }
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+    .nav,
+    .cursor,
+    .appearance-switcher,
+    .back-to-top,
+    .mobile-menu,
+    .hamburger,
+    .hero-bg,
+    .scroll-indicator,
+    .tech-icons {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   SAFE AREA (Notched devices)
+   ============================================ */
+@supports (padding: env(safe-area-inset-left)) {
+    @media (max-width: 768px) {
+        .nav {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+        }
+        
+        .container {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+        }
+        
+        .footer {
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+    }
+}
